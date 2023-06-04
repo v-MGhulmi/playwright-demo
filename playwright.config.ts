@@ -47,6 +47,8 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'],
       storageState: 'playwright/.auth/user.json',
+      deviceScaleFactor: 2,
+      viewport: { width: 2560, height: 1440 },
       },
       dependencies: ['setup'],
       fullyParallel: true,
@@ -82,7 +84,7 @@ export default defineConfig({
     /* Test against branded browsers. */
      {
        name: 'Microsoft Edge',
-       use: { ...devices['Desktop Edge'], channel: 'msedge',storageState: 'playwright/.auth/user.json', },
+       use: { ...devices['Desktop Edge'], channel: 'msedge',storageState: 'playwright/.auth/user.json',deviceScaleFactor: 2,viewport: { width: 2560, height: 1440 }, },
        fullyParallel: true,
        dependencies: ['setup'],
      },

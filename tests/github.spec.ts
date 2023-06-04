@@ -9,7 +9,9 @@ import { NewWikiDisplayPage } from '../pages/newwiki.page';
 import { SettingsPage } from '../pages/settings.page';
 import { userrepoPage } from '../pages/userrepo,page';
 let homePage:any
-test.beforeEach(async ({page}) => {
+
+test.describe('Github Tests',async () => {
+  test.beforeEach(async ({page}) => {
     
     homePage = new HomePage(page);
     await homePage.gotoHomePage();
@@ -17,6 +19,7 @@ test.beforeEach(async ({page}) => {
     // Click the get started link.
     
 })
+
 test('Create Repo test', async ({ page }) => {
   let randomName:any
   randomName = (Math.random() + 1).toString(36).substring(2);
@@ -84,3 +87,4 @@ test('Create Wiki page test', async ({ page }) => {
     
   
     });
+  });
