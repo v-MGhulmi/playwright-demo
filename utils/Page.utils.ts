@@ -1,4 +1,4 @@
-import { test,Page, Locator } from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
 export async function Click(page:Page,locator:Locator){
         await locator.waitFor({state:'visible'});
         await locator.click();

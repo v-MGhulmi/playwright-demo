@@ -21,7 +21,7 @@ export class SettengsPageLocators{
         await Click(this.page,this.ConfirmDeleteButton);
     }
     async fillVerifaction(name:string){
-        const content = "mohammadghulmi/test-repo"+name;
+        const content = "mohammadghulmi/"+name;
         await Fill(content,this.Verifacation);
     }
 }

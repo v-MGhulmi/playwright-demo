@@ -1,11 +1,15 @@
-import { expect, Locator, Page } from '@playwright/test';
+import {  Page } from '@playwright/test';
 import { RepoPageLocators } from '../locators/repo.locator';
 export class RepoDisplayPage {
     readonly page : Page;
-    readonly repoLocator :RepoPageLocators;
+    repoLocator :RepoPageLocators;
     
-    constructor(page:Page,randomName:string){
+    constructor(page:Page,randomName = ""){
         this.page = page;
         this.repoLocator = new RepoPageLocators(page,randomName);
+    }
+
+    setreponame(content:string) {
+        this.repoLocator = new RepoPageLocators(this.page,content)
     }
 }

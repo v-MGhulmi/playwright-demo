@@ -3,7 +3,7 @@ import { Click } from "../utils/Page.utils";
 export class IssuePageLocators{
     readonly page :Page;
     readonly issues : Locator;
-    constructor(page:Page,randomName:string){
+    constructor(page:Page){
         this.page = page;
         this.issues= page.locator('.blankslate-spacious');
     }

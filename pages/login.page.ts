@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import {  Page } from '@playwright/test';
 import { loginLocators } from '../locators/login.locator';
 export class LoginPage {
     readonly url = "https://github.com/login"

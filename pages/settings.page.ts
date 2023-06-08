@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import {  Page } from '@playwright/test';
 import { SettengsPageLocators } from '../locators/settings.locator';
 
 export class SettingsPage {

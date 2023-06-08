@@ -15,6 +15,8 @@ dotenv.config();
  */
 export default defineConfig({
   testDir: './tests',
+  globalSetup:'./auth.setup.ts',
+  globalTeardown:'./global-cleanup',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -24,14 +26,14 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 20 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['./reporters/custom.reporter.ts'],['html']],
+  reporter: [['./reporters/custom.reporter.ts'],['html',{attachmentsBaseURL:'https://drive.google.com/drive/folders/1DsckgbOOXeGkikkJmZ1eIDoQzbuPyvKN?usp=drive_link' }],['json', { outputFile: 'results.json' }]],
   //reporter:'./reporters/custom.reporter.ts',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: 'on-first-retry',
     video:'on',
     screenshot: 'only-on-failure',
    
@@ -47,7 +49,7 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'],
       storageState: 'playwright/.auth/user.json',
-      deviceScaleFactor: 2,
+      deviceScaleFactor: 1,
       viewport: { width: 2560, height: 1440 },
       },
       dependencies: ['setup'],
@@ -83,7 +85,7 @@ export default defineConfig({
 
     /* Test against branded browsers. */
      {
-       name: 'Microsoft Edge',
+       name: 'MicrosoftEdge',
        use: { ...devices['Desktop Edge'], channel: 'msedge',storageState: 'playwright/.auth/user.json',deviceScaleFactor: 2,viewport: { width: 2560, height: 1440 }, },
        fullyParallel: true,
        dependencies: ['setup'],

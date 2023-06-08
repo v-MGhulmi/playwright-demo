@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import {  Page } from '@playwright/test';
 import { CreateWikiLocators } from '../locators/createwiki.locator';
 
 export class CreateWikiPage {

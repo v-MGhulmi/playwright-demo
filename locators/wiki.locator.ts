@@ -3,7 +3,7 @@ import { Click } from "../utils/Page.utils";
 export class WikiPageLocators{
     readonly page :Page;
     readonly create : Locator;
-    constructor(page:Page,randomName:string){
+    constructor(page:Page){
         this.page = page;
         this.create= page.getByRole('link', { name: 'Create the first page' });
     }

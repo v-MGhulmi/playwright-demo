@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 import { HomePageLocators } from '../locators/homepage.locator';
 export class HomePage {
     readonly url = "https://github.com"
@@ -17,5 +17,11 @@ export class HomePage {
 
     async newRepo(){
         await this.NewRepoButton.click()
+    }
+    async searchandclick(content:string){
+        
+        await this.NewRepoButton.fillSearchBar(content);
+        await this.page.waitForTimeout(5000)
+        await this.NewRepoButton.clickSearchResult();
     }
 }

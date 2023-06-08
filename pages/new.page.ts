@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import {  Page } from '@playwright/test';
 import { NewRepoLocators } from '../locators/newrepo.locator';
 export class NewPage {
     readonly url = "https://github.com/new"
